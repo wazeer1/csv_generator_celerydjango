@@ -22,14 +22,8 @@ def generate(request):
     file_name = request.POST["file_name"]
     number = request.POST["number"]
     generate_csv.apply_async(args=[number,file_name])
-    # response = HttpResponse(content_type='text/csv')  
-    # response['Content-Disposition'] = 'attachment; filename="file.csv"'  
-    # writer = csv.writer(response)
-    # writer.writerow(['1001', 'John', 'Domil', 'CA'])  
-    # writer.writerow(['1002', 'Amit', 'Mukharji', 'LA', '"Testing"'])  
-    # print(response)
     response_data={
         "hello":'response'
     }
-    # return HttpResponse(json.dumps(response_data), content_type='application/javascript')
-    return HttpResponse((response), content_type='text/csv')
+    return HttpResponse(json.dumps(response_data), content_type='application/javascript')
+    # return HttpResponse((response), content_type='text/csv')

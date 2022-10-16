@@ -16,7 +16,7 @@ $(document).on("submit", "form.generate__form", function (e) {
         dataType: "json",
         data: data,
         success:function success(data) {
-            console.log(data);
+            window.alert("succesfully generated csv");;
         }
     })
 })
